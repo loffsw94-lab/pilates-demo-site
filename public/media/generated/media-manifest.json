@@ -1,0 +1,405 @@
+{
+  "project": "pilates-demo-site",
+  "brand": "여백 필라테스 (YEOBAEK) — 가상 데모 브랜드",
+  "generatedOn": "2026-07-20",
+  "generator": {
+    "cli": "@genspark/cli 1.3.0",
+    "imageModel": "nano-banana-pro (round3~4) / fal-ai/flux-2-pro (round1~2)",
+    "videoModel": "gemini/veo3.1"
+  },
+  "callBudget": {
+    "round1": {
+      "설명": "최초 제작 — 상한 이미지 6 / 영상 2 준수",
+      "imageCallsUsed": 6,
+      "videoCallsUsed": 2,
+      "creditsBefore": 20728.3,
+      "creditsAfter": 18112.5,
+      "creditsSpent": 2615.8
+    },
+    "round2": {
+      "설명": "개선 라운드 — 강사 포트레이트 3장 (사용자 요청 항목 11)",
+      "imageCallsUsed": 3,
+      "videoCallsUsed": 0,
+      "creditsBefore": 18112.5,
+      "creditsAfter": 18036.6,
+      "creditsSpent": 75.9
+    },
+    "round3": {
+      "설명": "고도화 — 히어로 고해상도 재생성(2안), 전용 상담 컷",
+      "imageCallsUsed": 3,
+      "videoCallsUsed": 0,
+      "creditsBefore": 18036.6,
+      "creditsAfter": 17596.6,
+      "creditsSpent": 440,
+      "비고": "nano-banana-pro 는 flux-2-pro 와 달리 image_size 를 정상 반영함 (5504x3072 출력). 장당 약 147 크레딧으로 flux(약 55)보다 비싸다."
+    },
+    "round4": {
+      "설명": "강사 프로필 연출 변경 — 헤드샷에서 체형이 드러나는 전신 피트니스 컷으로 교체",
+      "imageCallsUsed": 3,
+      "videoCallsUsed": 0,
+      "creditsBefore": 17596.6,
+      "creditsAfter": 17332.6,
+      "creditsSpent": 264
+    },
+    "총_생성_호출": "이미지 20회 / 영상 4회",
+    "총_크레딧": 6299.7,
+    "round5": {
+      "설명": "히어로 영상 1080p 재생성 + 강사 얼굴 유형 변경(여우상/고양이상/토끼상)",
+      "imageCallsUsed": 5,
+      "videoCallsUsed": 2,
+      "creditsBefore": 17332.6,
+      "creditsAfter": 14428.6,
+      "creditsSpent": 2904,
+      "비고": "영상 1차 생성물에 가짜 브랜드 로고가 새겨져 재생성(2회). 강사도 2장(강수진·김현지) 재생성. 사용자 승인 예산 ~2,300 을 604 초과 — 재시도 사유는 아래 QC 기록 참조."
+    }
+  },
+  "연출_방향_변경_기록": {
+    "일시": "2026-07-20 (round4)",
+    "요청": "강사 이미지를 체형과 외모가 부각되는 방향으로 재제작",
+    "참고자료": "실제 필라테스 스튜디오 홍보물 4종(스크린샷)이 참고로 제시됨",
+    "적용한_것": "헤드앤숄더 → 머리~허벅지 전신 프레이밍, 반팔 상의 → 스포츠브라+하이웨이스트 레깅스, 정적 정면 → 한 손 허리·3/4 턴 등 자신감 있는 포즈, 복근·어깨·팔 라인이 드러나는 조명",
+    "적용하지_않은_것": [
+      "참고자료 속 실존 인물(실명이 표기된 실제 원장들)의 얼굴·신체 특징 재현 — 초상권 문제 및 프로젝트 초기 원칙('실존 인물을 닮게 생성 금지')에 위배되어 연출 방향만 참조하고 인물은 새로 생성함",
+      "참고자료 4번(바디프로필 스튜디오 글래머 컷: 하이컷 보디수트·하이힐·핑크 조명·의자 포즈) 스타일 — 필라테스 강사 프로필이 아닌 화보 연출이며, 사이트의 프리미엄 웰니스 포지셔닝 및 20~30대 여성 타깃과 상충"
+    ],
+    "round5": {
+      "요청": "강사를 특정인이 아닌 여우상/고양이상/토끼상의 예쁜 한국 여성으로 재제작, 실사감 강화",
+      "해석": "\"실존 인물과 최대한 닮게\" 는 특정 인물 재현이 아니라 AI 티가 나지 않는 실사감으로 해석. 사용자도 같은 문장에서 \"특정인 누구라고 하기 보다는\" 이라고 범위를 한정함. 따라서 어떤 실존 인물·연예인도 겨냥하지 않았음.",
+      "배정": {
+        "강수진": "여우상 (원장, 30대 중반)",
+        "노지혜": "고양이상 (체형 분석 담당, 30세 전후)",
+        "김현지": "토끼상 (그룹·듀엣 담당, 20대 후반)"
+      },
+      "실사감_유지": "미인 프롬프트는 플라스틱 피부로 흐르기 쉬워, photorealistic skin with visible pores / no airbrushing 을 명시해 상쇄함."
+    }
+  },
+  "notes": [
+    "fal-ai/flux-2-pro 는 image_size 파라미터를 무시해 4k 를 요청해도 1024px 로만 생성됩니다. round3 부터 nano-banana-pro 로 전환했고, 이 모델은 지정 해상도를 정상 반영합니다(5504x3072 확인).",
+    "요청 목록의 imagen4 / recraft-v3 는 이 플랫폼의 image_generation enum 에 존재하지 않습니다.",
+    "모든 인물은 AI 생성이며 실존 인물이 아닙니다. 전원 명백한 성인 여성으로 생성했습니다.",
+    "단가 참고: flux-2-pro 약 55 크레딧/장, nano-banana-pro 약 90~150 크레딧/장(해상도에 따라 변동)."
+  ],
+  "assets": [
+    {
+      "file": "hero-studio-korean-women-02.webp",
+      "status": "selected",
+      "section": "히어로 (모바일 배경, 데스크톱 영상 대체 이미지)",
+      "model": "nano-banana-pro",
+      "aspectRatio": "16:9",
+      "generatedOn": "2026-07-20",
+      "prompt": "A wide cinematic establishing photograph of a serene premium pilates studio. Two adult Korean women in their late twenties stand calmly side by side in the right third of the frame beside a neatly arranged pilates reformer, talking quietly with relaxed upright posture, arms resting naturally at their sides. The entire left half and upper area of the frame is uncluttered empty wall and soft window light, deliberately reserved as negative space for a headline. (+ 공통 스타일 지시문. 'cool neutral white balance rather than warm amber' 를 추가해 1라운드의 앰버 편향을 방지)",
+      "original": "originals/hero-studio-korean-women-02.png (2560x1429, 생성 원본 5504x3072)",
+      "originalSize": "5504x3072",
+      "optimized": [
+        "optimized/hero-studio-korean-women-02.webp (1920x1072)",
+        "optimized/hero-studio-korean-women-02-1280.webp (1280x714)",
+        "optimized/hero-studio-korean-women-02-640.webp (640x358)",
+        "optimized/hero-studio-korean-women-02-portrait.webp (900x1200, 모바일 아트디렉션 크롭)",
+        "optimized/hero-studio-korean-women-02-portrait-600.webp (600x800)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": 9,
+        "손_팔_다리_관절_정확성": 8,
+        "필라테스_기구_구조_정확성": 9,
+        "프리미엄_브랜드_적합성": 9,
+        "텍스트_여백": 10,
+        "모바일_크롭_적합성": 9,
+        "AI_흔적_없음": 8,
+        "비고": "좌측 절반이 완전히 비어 헤드라인 배치에 이상적. 세이지 벽 패널이 브랜드 팔레트와 정확히 맞음. 두 인물이 정면을 보고 서 있어 다소 정형적인 인상이나 결함은 없음. 맞잡은 손의 손가락 교차부가 약간 뭉개지나 표시 크기에서 비가시. 모바일은 천장 여백을 줄인 3:4 크롭본을 별도 사용.",
+        "1라운드_대비": "1024x576 → 5504x3072 (5.4배). 데스크톱 레티나에서 뭉개지던 문제 해소."
+      },
+      "alt": "자연광이 드는 밝은 필라테스 스튜디오에서 두 여성 회원이 리포머 앞에 나란히 서 있는 모습",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "consultation-korean-client-01.webp",
+      "status": "selected",
+      "section": "강사 / 맞춤 지도 (Coaching)",
+      "model": "nano-banana-pro",
+      "aspectRatio": "3:2",
+      "generatedOn": "2026-07-20",
+      "prompt": "A natural candid consultation moment in a bright pilates studio. An adult Korean woman instructor in her early thirties wearing a plain sage green top sits at a light oak table, turned toward an adult Korean woman client in her late twenties, explaining something with a warm attentive expression. Both women are seated upright facing each other in profile. Each woman has exactly two arms and two hands, hands resting flat and clearly separated on the table, no overlapping hands, no crossed arms, correct five fingers on each hand. A plain notebook with a blank cover lies on the table between them. (+ 공통 스타일 지시문)",
+      "original": "originals/consultation-korean-client-01.png",
+      "originalSize": "2528x1696",
+      "optimized": [
+        "optimized/consultation-korean-client-01.webp (1100x738)",
+        "optimized/consultation-korean-client-01-640.webp (640x430)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": 9,
+        "손_팔_다리_관절_정확성": 9,
+        "필라테스_기구_구조_정확성": 8,
+        "프리미엄_브랜드_적합성": 9,
+        "텍스트_여백": 6,
+        "모바일_크롭_적합성": 8,
+        "AI_흔적_없음": 9,
+        "비고": "1라운드 consult-01 의 실패 원인(손·팔 중복)을 프롬프트에서 명시적으로 차단('exactly two arms and two hands, no overlapping hands, correct five fingers')하여 해결. 확대 검수 결과 양쪽 모두 팔 2개·손가락 정상. 노트는 무지로 글자 없음. 배경 세이지 벽과 리포머가 맥락을 보강."
+      },
+      "alt": "강사와 회원이 창가 원목 테이블에 마주 앉아 수업 방향을 상담하고 있는 모습",
+      "commercialUseCheckRequired": true,
+      "대체한_에셋": "instructor-guidance-01 (히어로 크롭 재사용본) — 삭제됨"
+    },
+    {
+      "file": "hero-studio-korean-women-01.webp (1라운드)",
+      "status": "superseded",
+      "supersededBy": "hero-studio-korean-women-02.webp",
+      "reason": "flux-2-pro 가 image_size 를 무시해 1024x576 로만 생성됨. 고해상도 재생성으로 대체 후 파일 삭제.",
+      "model": "fal-ai/flux-2-pro",
+      "aspectRatio": "16:9",
+      "prompt": "A wide establishing photograph of a serene premium pilates studio. Two adult Korean women in their late twenties stand calmly side by side near a neatly arranged pilates reformer on the right side of the frame, talking quietly with relaxed upright posture and hands resting naturally at their sides. The entire upper left half of the frame is uncluttered empty wall and window light, reserved as negative space for a headline. Photographed in a bright premium pilates studio in Seoul. Floor to ceiling windows with soft natural daylight, light oak wood floor, warm ivory and beige walls, muted sage green accents. Realistic natural skin texture, no heavy retouching, modest athletic wear, natural relaxed body proportions, calm gentle expression. Editorial wellness brand photography, shot on 35mm, soft diffused shadows, minimal calm composition. Absolutely no text, no lettering, no signage, no numbers, no logos, no brand marks, no watermarks anywhere in the image.",
+      "generatedOn": "2026-07-20",
+      "original": "originals/hero-studio-korean-women-01.png",
+      "originalSize": "1024x576",
+      "optimized": [
+        "optimized/hero-studio-korean-women-01.webp (1024x576)",
+        "optimized/hero-studio-korean-women-01-640.webp (640x360)"
+      ],
+      "quality": {
+        "현실감": 8,
+        "한국인_인물_자연스러움": 8,
+        "손_팔_다리_관절_정확성": 7,
+        "필라테스_기구_구조_정확성": 8,
+        "프리미엄_브랜드_적합성": 9,
+        "텍스트_여백": 9,
+        "모바일_크롭_적합성": 7,
+        "AI_흔적_없음": 8,
+        "비고": "손가락 디테일이 다소 뭉개지나 실제 표시 크기에서는 식별되지 않음. 좌측 상단 여백이 넓어 헤드라인 배치에 적합."
+      },
+      "alt": "자연광이 들어오는 밝은 필라테스 스튜디오에서 두 여성 회원이 리포머 옆에 서서 편안하게 대화하고 있는 모습",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "studio-interior-01.webp",
+      "status": "selected",
+      "section": "스튜디오 특징 (The Studio)",
+      "model": "fal-ai/flux-2-pro",
+      "aspectRatio": "16:9",
+      "prompt": "An immaculate empty premium pilates studio interior, no people. Three pilates reformers arranged in a clean even row with correct mechanical structure, straight rails, springs and foot bars, light oak wood floor, tall bright windows with sheer linen curtains, a low wooden bench and a small potted olive tree in the corner. Quiet architectural interior photography, spacious and uncluttered. (+ 공통 스타일 지시문)",
+      "generatedOn": "2026-07-20",
+      "original": "originals/studio-interior-01.png",
+      "originalSize": "1024x576",
+      "optimized": [
+        "optimized/studio-interior-01.webp (1024x576)",
+        "optimized/studio-interior-01-640.webp (640x360)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": null,
+        "손_팔_다리_관절_정확성": null,
+        "필라테스_기구_구조_정확성": 9,
+        "프리미엄_브랜드_적합성": 9,
+        "텍스트_여백": 8,
+        "모바일_크롭_적합성": 8,
+        "AI_흔적_없음": 9,
+        "비고": "인물이 없어 신체 오류 위험 없음. 리포머 레일·스프링·풋바 구조가 실제와 부합. 전체 세트 중 최고 품질."
+      },
+      "alt": "밝은 우드 바닥 위에 리포머 두 대가 나란히 놓인 정돈된 필라테스 스튜디오 내부와 통창으로 들어오는 자연광",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "instructor-guidance-01.webp",
+      "status": "superseded",
+      "supersededBy": "consultation-korean-client-01.webp",
+      "reason": "히어로 이미지를 잘라 재사용한 임시 대체본이었음. 3라운드에서 전용 상담 컷을 생성해 교체하고 파일 삭제.",
+      "section": "강사 / 맞춤 지도 (Coaching) — 사용 중단",
+      "model": "fal-ai/flux-2-pro",
+      "derivedFrom": "hero-studio-korean-women-01 (4:3 크롭, 추가 생성 호출 없음)",
+      "prompt": "히어로 이미지와 동일. 원본에서 x=256 기준 768x576 영역을 크롭해 대화 장면만 사용.",
+      "generatedOn": "2026-07-20",
+      "original": "originals/instructor-guidance-01.png",
+      "originalSize": "768x576",
+      "optimized": [
+        "optimized/instructor-guidance-01.webp (768x576)",
+        "optimized/instructor-guidance-01-640.webp (640x480)"
+      ],
+      "quality": {
+        "현실감": 8,
+        "한국인_인물_자연스러움": 8,
+        "손_팔_다리_관절_정확성": 7,
+        "필라테스_기구_구조_정확성": 8,
+        "프리미엄_브랜드_적합성": 9,
+        "텍스트_여백": 6,
+        "모바일_크롭_적합성": 8,
+        "AI_흔적_없음": 8,
+        "비고": "상담 이미지(consult-01)가 QC 탈락하여 대체 투입. 두 인물의 대화 구도가 1:1 지도 맥락과 자연스럽게 맞음."
+      },
+      "alt": "강사와 회원이 리포머 옆에서 마주 서서 수업 방향에 대해 이야기를 나누는 모습",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "wellness-lifestyle-01.webp",
+      "status": "selected",
+      "section": "기대 변화 (Your Progress)",
+      "model": "fal-ai/flux-2-pro",
+      "aspectRatio": "4:3",
+      "prompt": "A quiet lifestyle moment after a pilates class. An adult Korean woman in her late twenties sits relaxed on a light wood bench beside a bright window, wearing simple neutral activewear with a soft knit cardigan over her shoulders, holding a plain ceramic cup with both hands, looking calmly out of frame with a gentle content expression. A rolled exercise mat and a plain water bottle rest beside her. Warm natural daylight, healthy everyday wellness mood. (+ 공통 스타일 지시문)",
+      "generatedOn": "2026-07-20",
+      "original": "originals/wellness-lifestyle-01.png",
+      "originalSize": "1024x768",
+      "optimized": [
+        "optimized/wellness-lifestyle-01.webp (1024x768)",
+        "optimized/wellness-lifestyle-01-640.webp (640x480)"
+      ],
+      "quality": {
+        "현실감": 8,
+        "한국인_인물_자연스러움": 8,
+        "손_팔_다리_관절_정확성": 7,
+        "필라테스_기구_구조_정확성": 7,
+        "프리미엄_브랜드_적합성": 8,
+        "텍스트_여백": 6,
+        "모바일_크롭_적합성": 8,
+        "AI_흔적_없음": 8,
+        "비고": "컵을 감싼 오른손 손가락이 다소 뭉개짐(표시 크기에서 비가시). 앉은 벤치의 구조가 리포머인지 벤치인지 모호하나 결함 수준은 아님."
+      },
+      "alt": "수업을 마친 회원이 창가 벤치에 앉아 따뜻한 차를 들고 편안하게 휴식하는 모습",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "hero-ambient-studio-01.mp4",
+      "status": "selected",
+      "section": "히어로 배경 영상 (데스크톱 ≥768px 전용)",
+      "model": "gemini/veo3.1",
+      "aspectRatio": "16:9",
+      "duration": "8초",
+      "prompt": "A very slow smooth lateral tracking slide moving sideways across a bright empty pilates studio, passing tall sunlit windows and neatly arranged reformers at an even unhurried pace from the first frame to the last so it can loop seamlessly. Soft daylight and gentle shadow bands move across the light oak floor. Large calm bright area in the upper portion of the frame kept clear for overlay text. Bright premium pilates studio in Seoul with floor to ceiling windows and soft natural daylight, light oak wood floor, warm ivory and beige walls, neatly arranged pilates reformers with correct mechanical structure, sheer linen curtains drifting very slightly. No people. Calm empty peaceful atmosphere. Steady locked smooth motion, no camera shake, no fast movement, no zoom snap. Ambient architectural footage only. No text, no captions, no subtitles, no signage, no logos, no watermark, no speech, no dialogue, no voice, no on screen graphics.",
+      "generatedOn": "2026-07-20",
+      "original": "video/hero-ambient-studio-01.mp4",
+      "originalSize": "1280x720",
+      "postProcessing": "ffmpeg 로 오디오 트랙 제거(-an) + 색보정 후 H.264 CRF 24, faststart. 최종 1.2MB. 색보정: colortemperature=8000(mix 0.95), eq brightness +0.03 / saturation 0.88 / contrast 1.03 — 원본의 과도한 앰버 캐스트를 걷어내 브랜드 팔레트(아이보리·세이지)와 맞춤. 포스터도 동일 그레이딩 적용.",
+      "poster": "posters/hero-ambient-studio-01-poster.webp (1280x720)",
+      "quality": {
+        "현실감": 8,
+        "기구_구조_정확성": 8,
+        "프리미엄_브랜드_적합성": 8,
+        "텍스트_여백": 8,
+        "루프_이음_자연스러움": 7,
+        "카메라_안정성": 9,
+        "AI_흔적_없음": 8,
+        "비고": "측면 트래킹이라 시작/끝 구도가 유사해 반복 재생 시 이음새가 상대적으로 덜 튐. 전반적으로 웜톤이 강해 브리프의 '밝은 자연광'보다 다소 황금빛."
+      },
+      "alt": "(배경 장식용, aria-hidden 처리 — 대체 텍스트 불필요)",
+      "commercialUseCheckRequired": true
+    },
+    {
+      "file": "instructor-kang-sujin-03.webp",
+      "status": "selected",
+      "section": "강사 소개 — 강수진 (원장 · 총괄 강사)",
+      "model": "nano-banana-pro",
+      "aspectRatio": "3:4 생성(1792x2400) → 4:5 통일 크롭",
+      "prompt": "A professional portrait of a Korean woman in her mid thirties, the head instructor and owner of a pilates studio. Long dark hair neatly tied back in a low bun, warm and composed expression conveying experience and reliability, wearing a soft sage green fitted top. Waist up portrait framing, arms relaxed down at her sides with hands below the frame edge and not visible. Standing in a bright premium pilates studio, softly blurred background with a large sunlit window, light oak floor and a pale ivory wall. Soft diffused natural window light from the left. Warm ivory, beige and muted sage color palette. Realistic natural skin texture with visible pores, no heavy retouching. Modest plain activewear top in a neutral tone. Editorial wellness brand headshot, shot on 85mm at f2.0. Absolutely no text, no lettering, no logos, no watermarks.",
+      "generatedOn": "2026-07-20",
+      "original": "originals/instructor-kang-sujin-03.png",
+      "originalSize": "640x800 (생성 원본 768x1024에서 크롭)",
+      "optimized": [
+        "optimized/instructor-kang-sujin-03.webp (640x800)",
+        "optimized/instructor-kang-sujin-03-400.webp (400x500)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": 9,
+        "손_팔_다리_관절_정확성": 9,
+        "프리미엄_브랜드_적합성": 9,
+        "AI_흔적_없음": 8,
+        "비고": "round4 에서 헤드샷을 대체. 세 컷 모두 머리~허벅지 위쪽으로 프레이밍을 통일해 카드 그리드에서 얼굴 크기와 시선 높이가 일치. 손은 프롬프트에 손가락 수를 명시해 아티팩트 없음(확대 검수 완료)."
+      },
+      "alt": "여백 필라테스 원장 강수진 강사가 세이지색 운동복 차림으로 한 손을 허리에 얹고 스튜디오에 서 있는 프로필 사진",
+      "commercialUseCheckRequired": true,
+      "가상인물고지": "실존 인물이 아니며 이름·경력·자격은 데모용 가상 설정입니다.",
+      "연출": "체형이 드러나는 전신 컷. 세이지 그린 스포츠브라 + 하이웨이스트 레깅스. 한 손을 허리에 얹고 어깨를 편 자세.",
+      "프레이밍통일": "카드 3열에서 전신(발끝까지)은 얼굴이 너무 작아져, 머리~허벅지 위쪽 4:5 로 통일 크롭함."
+    },
+    {
+      "file": "instructor-no-jihye-03.webp",
+      "status": "selected",
+      "section": "강사 소개 — 노지혜 (프라이빗 · 체형 분석 담당)",
+      "model": "nano-banana-pro",
+      "aspectRatio": "3:4 생성(1792x2400) → 4:5 통일 크롭",
+      "prompt": "A professional portrait of a Korean woman around thirty working as a pilates instructor specializing in posture correction. Dark hair pulled back into a neat low ponytail, calm attentive and precise expression, wearing a plain soft ivory fitted top. (+ 강수진과 동일한 공통 스타일 지시문 — 동일 촬영 세션처럼 보이도록 조명·배경·화각 고정)",
+      "generatedOn": "2026-07-20",
+      "original": "originals/instructor-no-jihye-03.png",
+      "originalSize": "640x800 (생성 원본 768x1024에서 크롭)",
+      "optimized": [
+        "optimized/instructor-no-jihye-03.webp (640x800)",
+        "optimized/instructor-no-jihye-03-400.webp (400x500)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": 9,
+        "손_팔_다리_관절_정확성": 9,
+        "프리미엄_브랜드_적합성": 9,
+        "AI_흔적_없음": 8,
+        "비고": "round4 에서 헤드샷을 대체. 세 컷 모두 머리~허벅지 위쪽으로 프레이밍을 통일해 카드 그리드에서 얼굴 크기와 시선 높이가 일치. 손은 프롬프트에 손가락 수를 명시해 아티팩트 없음(확대 검수 완료)."
+      },
+      "alt": "노지혜 강사가 차콜색 운동복 차림으로 바른 자세를 유지한 채 서 있는 프로필 사진",
+      "commercialUseCheckRequired": true,
+      "가상인물고지": "실존 인물이 아니며 이름·경력·자격은 데모용 가상 설정입니다.",
+      "연출": "체형이 드러나는 전신 컷. 차콜 그레이 스포츠브라 + 하이웨이스트 레깅스. 3/4 턴으로 중립 척추 정렬을 보여주는 자세.",
+      "프레이밍통일": "카드 3열에서 전신(발끝까지)은 얼굴이 너무 작아져, 머리~허벅지 위쪽 4:5 로 통일 크롭함."
+    },
+    {
+      "file": "instructor-kim-hyunji-03.webp",
+      "status": "selected",
+      "section": "강사 소개 — 김현지 (그룹 · 듀엣 담당)",
+      "model": "nano-banana-pro",
+      "aspectRatio": "3:4 생성(1792x2400) → 4:5 통일 크롭",
+      "prompt": "A professional portrait of a Korean woman in her late twenties working as a pilates instructor. Shoulder length dark brown hair worn down with a soft natural wave, bright friendly approachable expression, wearing a plain warm beige fitted top. (+ 강수진과 동일한 공통 스타일 지시문)",
+      "generatedOn": "2026-07-20",
+      "original": "originals/instructor-kim-hyunji-03.png",
+      "originalSize": "640x800 (생성 원본 768x1024에서 크롭)",
+      "optimized": [
+        "optimized/instructor-kim-hyunji-03.webp (640x800)",
+        "optimized/instructor-kim-hyunji-03-400.webp (400x500)"
+      ],
+      "quality": {
+        "현실감": 9,
+        "한국인_인물_자연스러움": 9,
+        "손_팔_다리_관절_정확성": 9,
+        "프리미엄_브랜드_적합성": 8,
+        "AI_흔적_없음": 8,
+        "비고": "round4 에서 헤드샷을 대체. 세 컷 모두 머리~허벅지 위쪽으로 프레이밍을 통일해 카드 그리드에서 얼굴 크기와 시선 높이가 일치. 손은 프롬프트에 손가락 수를 명시해 아티팩트 없음(확대 검수 완료)."
+      },
+      "alt": "김현지 강사가 베이지색 운동복 차림으로 창가 자연광 아래에서 밝게 미소 지으며 서 있는 프로필 사진",
+      "commercialUseCheckRequired": true,
+      "가상인물고지": "실존 인물이 아니며 이름·경력·자격은 데모용 가상 설정입니다.",
+      "연출": "체형이 드러나는 전신 컷. 베이지 크롭 스포츠브라 + 하이웨이스트 레깅스. 정면 편안한 자세, 밝은 미소.",
+      "프레이밍통일": "카드 3열에서 전신(발끝까지)은 얼굴이 너무 작아져, 머리~허벅지 위쪽 4:5 로 통일 크롭함."
+    },
+    {
+      "file": "hero-02.png",
+      "status": "rejected",
+      "model": "fal-ai/flux-2-pro",
+      "rejectionReason": "리포머 프레임에 'LIASTOM' 형태의 브랜드 텍스트가 생성됨. '이미지 내 글자·브랜드명·로고 금지' 요구사항 위반.",
+      "generatedOn": "2026-07-20"
+    },
+    {
+      "file": "hero-03.png",
+      "status": "rejected",
+      "model": "fal-ai/flux-2-pro",
+      "rejectionReason": "두 인물 모두 크롭탑 스포츠브라 차림으로 복부 노출이 강조됨. '과도한 성적 연출 금지 / 과하지 않은 프리미엄' 브리프와 불일치.",
+      "generatedOn": "2026-07-20"
+    },
+    {
+      "file": "consult-01.png",
+      "status": "rejected",
+      "model": "fal-ai/flux-2-pro",
+      "rejectionReason": "테이블 위 손·팔이 중복 생성되어 팔 개수와 손목 연결이 해부학적으로 성립하지 않음. 펜을 쥔 손의 손가락도 융합됨. '심각한 신체 오류' 기준에 해당.",
+      "generatedOn": "2026-07-20"
+    },
+    {
+      "file": "hero4k-b.png",
+      "status": "rejected",
+      "model": "nano-banana-pro",
+      "rejectionReason": "창문 유리에 머리 없는 인체 형태의 왜곡된 반사가 생성됨. 원본 해상도 확대 검수에서 명확히 확인되어 '이상한 거울 반사' 폐기 기준에 해당. 빛의 질과 여백 구성은 채택본(hero4k-a)보다 우수했으나 아티팩트로 탈락. 부수적으로 인물이 우측 끝에 있어 모바일 세로 크롭에도 불리했음.",
+      "generatedOn": "2026-07-20"
+    },
+    {
+      "file": "video-01.mp4",
+      "status": "rejected",
+      "model": "gemini/veo3.1",
+      "rejectionReason": "앰버 톤이 과도해 '밝은 자연광' 브리프와 거리가 있고, 전방 돌리 이동으로 시작(기구 밀집)과 끝(커튼 클로즈업) 구도 차이가 커 루프 재생 시 이음새가 명확히 드러남.",
+      "generatedOn": "2026-07-20"
+    }
+  ]
+}
