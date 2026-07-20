@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * 색상·서체 토큰은 tailwind.config.js 에 정의되어 있습니다.
+ * (경로에 '#' 이 포함되어 Tailwind v4 의 URL 기반 경로 해석이 실패하므로
+ *  PostCSS 기반으로 동작하는 v3 를 사용합니다.)
+ */
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #faf8f4;
+  color: #2a2723;
+  letter-spacing: -0.011em;
+  line-height: 1.75;
+}
+
+/* 한국어 가독성: 단어 단위 줄바꿈 */
+.kr {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 모바일 하단 고정 CTA 바에 콘텐츠가 가리지 않도록 여백 확보 */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  }
+}
+
+/*
+ * 스크롤 등장 연출.
+ * 숨김 상태는 JS가 살아 있을 때(html.js)만 적용한다.
+ * JS 비활성·오류·크롤러 환경에서는 콘텐츠가 항상 보이도록 하기 위함.
+ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.js .reveal[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+/*
+ * 히어로 스크림 — 영상/사진 위 텍스트 가독성 확보.
+ * 데스크톱은 좌측에 카피가 몰려 있어 대각선 그라데이션,
+ * 모바일은 카피가 하단 전체를 쓰므로 세로 그라데이션으로 분리한다.
+ */
+.hero-scrim {
+  background:
+    linear-gradient(
+      100deg,
+      rgba(28, 25, 21, 0.66) 0%,
+      rgba(28, 25, 21, 0.46) 36%,
+      rgba(28, 25, 21, 0.14) 66%,
+      rgba(28, 25, 21, 0.05) 100%
+    ),
+    linear-gradient(to top, rgba(28, 25, 21, 0.4) 0%, rgba(28, 25, 21, 0) 45%);
+}
+
+/*
+ * 헤더 스크림 — 히어로 영상이 밝은 통창 구간을 지날 때
+ * 상단 흰 네비게이션 글자가 배경에 묻히는 것을 방지한다.
+ * (스크림 없을 때 실측 대비 1.31:1 → WCAG AA 미달)
+ */
+.header-scrim {
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 25, 21, 0.68) 0%,
+    rgba(28, 25, 21, 0.4) 55%,
+    rgba(28, 25, 21, 0) 100%
+  );
+}
+
+@media (max-width: 767px) {
+  .hero-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(28, 25, 21, 0.74) 0%,
+      rgba(28, 25, 21, 0.58) 40%,
+      rgba(28, 25, 21, 0.3) 72%,
+      rgba(28, 25, 21, 0.14) 100%
+    );
+  }
+}
+
+/* FAQ 아코디언 */
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* 접근성: 모션 최소화 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: #dfe5db;
+  color: #2a2723;
+}
